@@ -56,8 +56,8 @@ def gettweet(request):
     return render(request, "tweetmap/index.html", {"coordinatelist": coordinate1})
 
 def confirmSubscription(token,topic_arn):
-    sns = boto3.client('sns',aws_access_key_id= 'AKIAJTBAXPOSWN733BIA',
-                        aws_secret_access_key = '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',
+    sns = boto3.client('sns',aws_access_key_id= '',
+                        aws_secret_access_key = '',
                         region_name = 'us-east-1')
     try:
         response = sns.confirm_subscription(
@@ -103,7 +103,7 @@ def sns_handler(request):
 def get_es_connection():
 
     host = 'search-tweetmap-3irxvi2quadmyikuw2vh6227rq.us-east-1.es.amazonaws.com'
-    awsauthentication = AWS4Auth('AKIAJTBAXPOSWN733BIA', 'NZAQX0vBV541SNWsewaRSUKtOa1yTps1DToo5VpJ', 'us-east-1', 'es')
+    awsauthentication = AWS4Auth('', '', 'us-east-1', 'es')
 
     es = Elasticsearch(
         hosts=[{'host': host, 'port': 443}],
